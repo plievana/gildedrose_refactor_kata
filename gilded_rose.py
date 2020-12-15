@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-from .item import Item
+from item import Item
 
 class GildedRose(object):
 
     def __init__(self, items):
         self.items = items
 
-    def update_quality(self):
+    def update_quality(self) -> None:
         for item in self.items:
             if item.name != "Aged Brie" and item.name != "Backstage passes to a TAFKAL80ETC concert":
                 if item.quality > 0:
