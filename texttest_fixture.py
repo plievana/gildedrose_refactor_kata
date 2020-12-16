@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import print_function
+from typing import Sequence
+from item.updatable_item import UpdatableItem
+from item.updatable_item_factory import UpdatableItemFactory
 
 from gilded_rose import GildedRose
 from item import Item
@@ -18,6 +21,7 @@ if __name__ == "__main__":
              Item(name="Conjured Mana Cake", sell_in=3, quality=6),  # <-- :O
             ]
 
+    updatable_items: Sequence[UpdatableItem] = UpdatableItemFactory.list_to_updatable(items)
     days = 2
     import sys
     if len(sys.argv) > 1:
@@ -28,4 +32,4 @@ if __name__ == "__main__":
         for item in items:
             print(item)
         print("")
-        GildedRose(items).update_quality()
+        GildedRose().update_quality(updatable_items)
