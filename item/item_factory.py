@@ -10,10 +10,10 @@ from .fields.quality import ItemQuality
 class ItemFactory:
     
     @staticmethod
-    def based_on(raw_name: str, raw_sell_in: int, raw_quality: int) -> Item:
-        name: ItemName = ItemName(raw_name)
-        sell_in: ItemSellIn = ItemSellIn(raw_sell_in)
-        quality: ItemQuality = ItemQuality(raw_quality)
+    def based_on(name: str, sell_in: int, quality: int) -> Item:
+        name: ItemName = ItemName(name)
+        sell_in: ItemSellIn = ItemSellIn(sell_in)
+        quality: ItemQuality = ItemQuality(quality)
 
         if name.is_aged_brie():
              return AgedBrie(name, sell_in, quality)
